@@ -1,0 +1,30 @@
+ ---
+ - name: Lesson 3 1a
+   hosts: arista:cisco:juniper
+   gather_facts: False
+   tasks:
+     - name: Show arp
+       cli_command:
+         command: show ip arp
+       register: show_ip_arp_ios
+       when: ansible_network_os == "ios"
+  
+     - name: Show arp eos
+       cli_command:
+         command: show ip arp
+       register: show_ip_arp_eos
+       when: ansible_network_os == "eos"
+  
+     - name: show arp junos
+       cli_command:
+          command: show arp
+       register: show_ip_arp_junos
+       when: ansible_network_os == "junos"
+  
+     - name: print debug output
+       ansible.builtin.debug:
+         var: show_ip_arp_eos
+       when: ansible_network_os == "eos"
+                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                               
+                                           
