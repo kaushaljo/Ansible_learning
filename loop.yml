@@ -14,3 +14,9 @@
         - 4
         
         
+ - name: Print value of vlan id 4
+   ansible.builtin.debug:
+     var: vlan["results'][3]["stdout_lines"]
+     
+     #vlan 4 is 3rd item in array
+     # stdout_lines just displays to screen output of show vlan id 4
