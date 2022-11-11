@@ -1,0 +1,16 @@
+---
+- name: lesson3 2a
+  hosts: nxos
+  gather_facts: False
+  tasks:
+    - name: Find VLAN ID
+      cli_command:
+        command: show vlan id {{ item }}
+      register: vlan
+      loop:
+        - 1
+        - 2
+        - 3
+        - 4
+        
+        
